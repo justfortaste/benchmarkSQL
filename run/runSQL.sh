@@ -50,4 +50,5 @@ echo "# Loading SQL file ${SQL_FILE}"
 echo "# ------------------------------------------------------------"
 myOPTS="-Dprop=$1"
 myOPTS="$myOPTS -DcommandFile=${SQL_FILE}"
+#echo "java -cp "$myCP" $myOPTS ExecJDBC"
 java -cp "$myCP" $myOPTS ExecJDBC

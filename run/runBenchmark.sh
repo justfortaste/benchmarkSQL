@@ -12,7 +12,10 @@ fi
 SEQ=$(expr $(cat "${SEQ_FILE}") + 1) || exit 1
 echo "${SEQ}" > "${SEQ_FILE}"
 
-source funcs.sh $1
+ls -l funcs.sh
+
+# xx
+source ./funcs.sh $1
 
 setCP || exit 1
 

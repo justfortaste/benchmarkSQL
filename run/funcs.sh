@@ -28,6 +28,9 @@ function setCP()
 	firebird)
 	    cp="../lib/firebird/*:../lib/*"
 	    ;;
+	mysql)
+	    cp="../lib/mysql/*:../lib/*"
+	    ;;
 	oracle)
 	    cp="../lib/oracle/*"
 	    if [ ! -z "${ORACLE_HOME}" -a -d ${ORACLE_HOME}/lib ] ; then
@@ -48,7 +51,7 @@ function setCP()
 # is a database, we support.
 # ----
 case "$(getProp db)" in
-    firebird|oracle|postgres)
+    firebird|oracle|postgres|mysql)
 	;;
     "")	echo "ERROR: missing db= config option in ${PROPS}" >&2
 	exit 1

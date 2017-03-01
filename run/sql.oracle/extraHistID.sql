@@ -11,6 +11,7 @@
 --	with Oracle 11g, using the sequence in a trigger.
 -- ----
 -- Adjust the sequence above the current max(hist_id)
+create sequence bmsql_hist_id_seq;
 alter sequence bmsql_hist_id_seq increment by 30000;
 declare
     n integer\;
