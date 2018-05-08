@@ -44,11 +44,14 @@ fi
 # Set myCP according to the database type.
 # ----
 setCP || exit 1
-
+begin=`date`
 echo "# ------------------------------------------------------------"
 echo "# Loading SQL file ${SQL_FILE}"
+echo "# Load begin: $begin "
 echo "# ------------------------------------------------------------"
 myOPTS="-Dprop=$1"
 myOPTS="$myOPTS -DcommandFile=${SQL_FILE}"
 #echo "java -cp "$myCP" $myOPTS ExecJDBC"
 java -cp "$myCP" $myOPTS ExecJDBC
+end=`date`
+echo "# Load end: $end "

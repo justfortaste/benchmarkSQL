@@ -1,6 +1,6 @@
-db=mysql
-driver=com.mysql.jdbc.Driver
-conn=jdbc:mysql://localhost:3001/benchmarksql
+db=dameng
+driver=dm.jdbc.driver.DmDriver
+conn=jdbc:dm://localhost:5236/benchmarksql
 user=benchmarktest
 password=benchmarktest
 
@@ -29,7 +29,7 @@ stockLevelWeight=4
 
 // Directory name to create for collecting detailed result data.
 // Comment this out to suppress.
-resultDirectory=mysql_result_%tY-%tm-%td_%tH%tM%tS
+resultDirectory=dameng_result_%tY-%tm-%td_%tH%tM%tS
 osCollectorScript=./misc/os_collector_linux.py
 osCollectorInterval=1
 //osCollectorSSHAddr=user@dbhost

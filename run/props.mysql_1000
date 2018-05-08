@@ -1,10 +1,10 @@
 db=mysql
 driver=com.mysql.jdbc.Driver
-conn=jdbc:mysql://localhost:3001/benchmarksql
+conn=jdbc:mysql://localhost:3001/benchmarksql1000
 user=benchmarktest
 password=benchmarktest
 
-warehouses=100
+warehouses=1000
 loadWorkers=30
 
 terminals=100
