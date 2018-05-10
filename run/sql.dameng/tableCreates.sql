@@ -14,7 +14,7 @@ create table bmsql_warehouse (
 	  w_state     char(2),
 	  w_zip       char(9),
 	  cluster primary key(w_id)
-);
+)storage(fillfactor 5,without counter);
 
 create table bmsql_district (
 	  d_w_id       integer       not null,
@@ -29,7 +29,7 @@ create table bmsql_district (
 	  d_state      char(2),
 	  d_zip        char(9),
 	  cluster primary key (d_w_id, d_id)
-);
+)storage(fillfactor 5,without counter);
 
 create table bmsql_customer (
 	  c_w_id         integer        not null,
@@ -54,7 +54,7 @@ create table bmsql_customer (
 	  c_middle       char(2),
 	  c_data         varchar(500),
 	  cluster primary key (c_w_id, c_d_id, c_id)
-);
+)storage(without counter);
 
 create table bmsql_history (
 	  hist_id  integer,
@@ -65,16 +65,15 @@ create table bmsql_history (
 	  h_w_id   integer,
 	  h_date   timestamp,
 	  h_amount decimal(6,2),
-	  h_data   varchar(24),
-	  cluster primary key (hist_id)
-);
+	  h_data   varchar(24)
+)storage(branch(16,16),without counter);
 
 create table bmsql_new_order (
 	  no_w_id  integer   not null,
 	  no_d_id  integer   not null,
 	  no_o_id  integer   not null,
 	  cluster primary key (no_w_id, no_d_id, no_o_id)
-);
+)storage(without counter);
 
 create table bmsql_oorder (
 	  o_w_id       integer      not null,
@@ -86,7 +85,7 @@ create table bmsql_oorder (
 	  o_all_local  integer,
 	  o_entry_d    timestamp,
 	  cluster primary key (o_w_id, o_d_id, o_id)
-);
+)storage(without counter);
 
 create table bmsql_order_line (
 	  ol_w_id         integer   not null,
@@ -100,7 +99,7 @@ create table bmsql_order_line (
 	  ol_quantity     integer,
 	  ol_dist_info    char(24),
 	  cluster primary key (ol_w_id, ol_d_id, ol_o_id, ol_number)
-);
+)storage(without counter);
 
 create table bmsql_item (
 	  i_id     integer      not null,
@@ -109,7 +108,7 @@ create table bmsql_item (
 	  i_data   varchar(50),
 	  i_im_id  integer,
 	  cluster primary key (i_id)
-);
+)storage(without counter);
 
 create table bmsql_stock (
 	  s_w_id       integer       not null,
@@ -130,6 +129,6 @@ create table bmsql_stock (
 	  s_dist_09    char(24),
 	  s_dist_10    char(24),
 	  cluster primary key (s_w_id, s_i_id)
-);
+)storage(without counter);
 
 create sequence bmsql_hist_id_seq;

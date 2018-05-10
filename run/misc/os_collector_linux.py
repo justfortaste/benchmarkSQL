@@ -162,7 +162,7 @@ def initSystemUsage():
         if line[0] == "cpu":
             lastStatData = [int(x) for x in line[1:]]
             break
-    if len(lastStatData) != 10:
+    if len(lastStatData) != 9:
         raise Exception("cpu line in /proc/stat too short");
 
     procVMStatFD = open("/proc/vmstat", "r", buffering = 0)

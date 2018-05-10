@@ -1,0 +1,10 @@
+create user benchmarktest identified by "benchmarktest";
+grant dba to benchmarktest;
+ALTER USER benchmarktest  LIMIT SESSION_PER_USER 1000;
+
+create user benchmarktest1000 identified by "benchmarktest1000";
+grant dba to benchmarktest1000 ;
+ALTER USER benchmarktest1000 LIMIT SESSION_PER_USER 1000;
+
+alter database resize logfile 'DAMENG01.log' to 4000;
+alter database resize logfile 'DAMENG02.log' to 4000;
